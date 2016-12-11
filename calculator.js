@@ -6,6 +6,8 @@ $(function() { // document ready
 
 var buildCalc = function() {
 
+var count = 0;
+
 var $containerWrap = $('<div class = "container-fluid" style="background-color: #D793FF"></div>');
 $containerWrap.css('text-align', 'center');
 
@@ -14,7 +16,7 @@ $('body').append($containerWrap);
 var $winHeight = $(window).height();
 var $winWidth = $(window).width();
 
-$containerWrap.css('height', $winHeight);
+// $containerWrap.css('height', $winHeight);
 $containerWrap.css('border-style', 'solid');
 $containerWrap.css('border-width', '5px');
 
@@ -27,14 +29,14 @@ var $row5 = $('<div class = "row" id = "row5"></div>');
 var $row6 = $('<div class = "row" id = "row6"></div>');
 var $col1_row1 = $('<div class = "col-sm-12" id = "col1_row1">0</div>');
 
-var $col1_row2 = $('<div class = "col-sm-3" id = "col1_row2">C</div>');
-var $col2_row2 = $('<div class = "col-sm-3 operator" id = "col2_row2">+/-</div>');
-var $col3_row2 = $('<div class = "col-sm-3 operator" id = "col3_row2">%</div>');
+var $col1_row2 = $('<div class = "col-sm-3 clear" id = "col1_row2">C</div>');
+var $col2_row2 = $('<div class = "col-sm-3 parens" id = "col2_row2">( )</div>');
+var $col3_row2 = $('<div class = "col-sm-3 number" id = "col3_row2"> % </div>');
 var $col4_row2 = $('<div class = "col-sm-3 operator" id = "col4_row2">/</div>');
 var $col1_row3 = $('<div class = "col-sm-3 number" id = "col1_row3">7</div>');
 var $col2_row3 = $('<div class = "col-sm-3 number" id = "col2_row3">8</div>');
 var $col3_row3 = $('<div class = "col-sm-3 number" id = "col3_row3">9</div>');
-var $col4_row3 = $('<div class = "col-sm-3 operator" id = "col4_row3">x</div>');
+var $col4_row3 = $('<div class = "col-sm-3 operator" id = "col4_row3">*</div>');
 var $col1_row4 = $('<div class = "col-sm-3 number" id = "col1_row4">4</div>');
 var $col2_row4 = $('<div class = "col-sm-3 number" id = "col2_row4">5</div>');
 var $col3_row4 = $('<div class = "col-sm-3 number" id = "col3_row4">6</div>');
@@ -44,7 +46,7 @@ var $col2_row5 = $('<div class = "col-sm-3 number" id = "col2_row5">2</div>');
 var $col3_row5 = $('<div class = "col-sm-3 number" id = "col3_row5">3</div>');
 var $col4_row5 = $('<div class = "col-sm-3 operator" id = "col4_row5">+</div>');
 var $col1_row6 = $('<div class = "col-sm-6 number" id = "col1_row6">0</div>');
-var $col2_row6 = $('<div class = "col-sm-3" id = "col2_row6">.</div>');
+var $col2_row6 = $('<div class = "col-sm-3 number" id = "col2_row6">.</div>');
 var $col3_row6 = $('<div class = "col-sm-3 equals" id = "col3_row6">=</div>');
 
 
@@ -89,7 +91,16 @@ var $numMouseDown = $('.number').mousedown(function(e) {
 var $numMouseUp = $('.number').mouseup(function(e) {
   $(this).css('background-color', '#D793FF')
   $innerText = $(this).text();
-  $(col1_row1).append($innerText);
+
+  if($col1_row1.text() == '0') {
+    $(col1_row1).text($innerText);
+    console.log("0 case")
+  } else {
+    $(col1_row1).append($innerText);
+    console.log("else");
+  }
+
+
 });
 var $operatorMouseDown = $('.operator').mousedown(function(e) {
   $(this).css('background-color', 'grey');
@@ -109,6 +120,37 @@ var $equalsMouseUp = $('.equals').mouseup(function(e) {
   var $equals = $(col1_row1).text();
   $(col1_row1).empty();
   $(col1_row1).append(eval($equals));
+});
+var $clear = $('.clear').mouseup(function(e) {
+  count = 0;
+  $(col1_row1).text('0');
+
+});
+
+var $parensMouseDown = $('.parens').mousedown(function(e) {
+  $(this).css('background-color', 'grey');
+});
+var $parensMouseUp = $('.parens').mouseup(function(e) {
+
+  $(this).css('background-color', '#D793FF')
+  if(count % 2 == 0) {
+    count++;
+    $(col1_row1).append('(');
+    console.log(count);
+  }
+  else {
+    count++;
+    $(col1_row1).append(')');
+    console.log(count);
+  }
+
+});
+
+$(window).resize(function(e) {
+  var $winHeight = $(window).height();
+  console.log($winHeight);
+  $containerWrap.css('height', $winHeight);
+  $('.row').css('height', $winHeight/6.1 + 'px');
 });
 
 
