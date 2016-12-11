@@ -58,8 +58,8 @@ var $col3_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7"> === </div>')
 var $col4_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7"> == </div>');
 var $col1_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> &#62; </div>');
 var $col2_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> &#60; </div>');
-var $col3_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> !=== </div>');
-var $col4_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> !== </div>');
+var $col3_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> !== </div>');
+var $col4_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> != </div>');
 var $col1_row9 = $('<div class = "col-sm-3 logic" id = "col3_row9"> && </div>');
 var $col2_row9 = $('<div class = "col-sm-3 logic" id = "col3_row9"> || </div>');
 var $col3_row9 = $('<div class = "col-sm-6 logic" id = "col3_row9"> ! </div>');
@@ -134,7 +134,12 @@ var $logicMouseDown = $('.logic').mousedown(function(e) {
 var $logicMouseUp = $('.logic').mouseup(function(e) {
   $(this).css('background-color', '#91B9DE');
   $innerText = $(this).text();
-  $(col1_row1).append($innerText);
+  if($col1_row1.text() == '0') {
+    $(col1_row1).text($innerText);
+
+  } else {
+    $(col1_row1).append($innerText);
+  }
 });
 
 var $equalsMouseDown = $('.equals').mousedown(function(e) {
@@ -165,16 +170,29 @@ var $parensMouseDown = $('.parens').mousedown(function(e) {
 });
 var $parensMouseUp = $('.parens').mouseup(function(e) {
 
-  $(this).css('background-color', '#D793FF')
-  if(count % 2 == 0) {
-    count++;
-    $(col1_row1).append('(');
-    console.log(count);
-  }
-  else {
-    count++;
-    $(col1_row1).append(')');
-    console.log(count);
+  $(this).css('background-color', '#E4EFF1')
+  if($col1_row1.text() == '0') {
+    if(count % 2 == 0) {
+      count++;
+      $(col1_row1).text('(');
+      console.log(count);
+    }
+    else {
+      count++;
+      $(col1_row1).text(')');
+      console.log(count);
+    }
+  } else {
+    if(count % 2 == 0) {
+      count++;
+      $(col1_row1).append('(');
+      console.log(count);
+    }
+    else {
+      count++;
+      $(col1_row1).append(')');
+      console.log(count);
+    }
   }
 
 });
