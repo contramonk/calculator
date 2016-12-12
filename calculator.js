@@ -119,6 +119,7 @@ var $numMouseUp = $('.number').mouseup(function(e) {
 
 
 });
+
 var $operatorMouseDown = $('.operator').mousedown(function(e) {
   $(this).css('background-color', 'grey');
 
@@ -202,6 +203,63 @@ $(window).resize(function(e) {
   console.log($winHeight);
   $containerWrap.css('height', $winHeight);
   $('.row').css('height', $winHeight/9.1 + 'px');
+});
+
+$('body').keypress(function(e) {
+  console.log("keypress");
+  switch(e.keyCode) {
+    case 48:
+    case 49:
+    case 50:
+    case 51:
+    case 52:
+    case 53:
+    case 54:
+    case 55:
+    case 56:
+    case 57: //0-9
+    case 47: // divide
+    case 42: // mult
+    case 45: // min
+    case 43: // plus
+    case 50: // open parens
+    case 51: // close parens
+    case 38: // ampersand
+    case 46: // dot
+    
+      if($col1_row1.text() == '0') {
+        $(col1_row1).text(e.key);
+        console.log(e.key + 'if');
+      } else {
+        $(col1_row1).append(e.key);
+        console.log(e.key + 'else');
+      }
+      break;
+  }
+});
+$('body').keydown(function(e) {
+  console.log("keypress");
+  switch(e.keyCode) {
+    case 8:
+      var innerText = $(col1_row1).text().slice(0,-1);
+      $(col1_row1).text(innerText);
+      break;
+    case 13:
+      var $equals = $(col1_row1).text();
+      $(col1_row1).empty();
+      if(eval($equals)) {
+        $(col1_row1).append(eval($equals));
+        console.log("true");
+      }
+      else {
+        $(col1_row1).append('false');
+        console.log("false");
+      }
+      break;
+
+  }
+
+
 });
 
 
