@@ -113,10 +113,8 @@ var buildCalc = function() {
 
     if($col1_row1.text() == '0') {
       $(col1_row1).text($innerText);
-      console.log("0 case")
     } else {
       $(col1_row1).append($innerText);
-      console.log("else");
     }
   }); // end numMouseUp
 
@@ -176,23 +174,19 @@ var buildCalc = function() {
       if(count % 2 == 0) {
         count++;
         $(col1_row1).text('(');
-        console.log(count);
       }
       else {
         count++;
         $(col1_row1).text(')');
-        console.log(count);
       }
     } else {
       if(count % 2 == 0) {
         count++;
         $(col1_row1).append('(');
-        console.log(count);
       }
       else {
         count++;
         $(col1_row1).append(')');
-        console.log(count);
       }
     }
   }); // end parens mouseup
@@ -226,10 +220,8 @@ var buildCalc = function() {
       case 37: // mod
         if($col1_row1.text() == '0') {
           $(col1_row1).text(e.key);
-          console.log(e.key + 'if');
         } else {
           $(col1_row1).append(e.key);
-          console.log(e.key + 'else');
         }
         break;
       case 99: // c for clear
@@ -239,19 +231,15 @@ var buildCalc = function() {
       case 40: // open parens
         if($col1_row1.text() == '0') {
           $(col1_row1).text('(');
-          console.log(e.key + 'if');
         } else {
           $(col1_row1).append('(');
-          console.log(e.key + 'else');
         }
         break;
       case 41: // close parens
         if($col1_row1.text() == '0') {
           $(col1_row1).text(')');
-          console.log(e.key + 'if');
         } else {
           $(col1_row1).append(')');
-          console.log(e.key + 'else');
         }
       break;
     }
@@ -259,7 +247,6 @@ var buildCalc = function() {
 
   //keydown event handler
   $('body').keydown(function(e) {
-    console.log("keydown");
     switch(e.keyCode) {
       case 8:
         var innerText = $(col1_row1).text().slice(0,-1);
@@ -270,11 +257,9 @@ var buildCalc = function() {
         $(col1_row1).empty();
         if(eval($equals)) {
           $(col1_row1).append(eval($equals));
-          console.log("true");
         }
         else {
           $(col1_row1).append('false');
-          console.log("false");
         }
         break;
     }
