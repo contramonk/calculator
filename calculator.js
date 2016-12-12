@@ -9,17 +9,16 @@ var buildCalc = function() {
 var count = 0;
 
 var $containerWrap = $('<div class = "container-fluid" style="background-color: #E4EFF1"></div>');
-$containerWrap.css('text-align', 'center');
-
 
 $('body').append($containerWrap);
 
-var $winHeight = $(window).height();
-var $winWidth = $(window).width();
-
-// $containerWrap.css('height', $winHeight);
 $containerWrap.css('border-style', 'solid');
 $containerWrap.css('border-width', '5px');
+$containerWrap.css('text-align', 'center');
+
+// turn off bootstrap resp
+
+
 
 var $row1 = $('<div class = "row" id = "row1"></div>');
 var $row2 = $('<div class = "row" id = "row2"></div>');
@@ -31,38 +30,38 @@ var $row7 = $('<div class = "row" id = "row7"></div>');
 var $row8 = $('<div class = "row" id = "row8"></div>');
 var $row9 = $('<div class = "row" id = "row9"></div>');
 
-var $col1_row1 = $('<div class = "col-sm-12" id = "col1_row1">0</div>');
+var $col1_row1 = $('<div class = "col-xs-12" id = "col1_row1">0</div>');
 
-var $col1_row2 = $('<div class = "col-sm-3 clear" id = "col1_row2">C</div>');
-var $col2_row2 = $('<div class = "col-sm-3 parens" id = "col2_row2">( )</div>');
-var $col3_row2 = $('<div class = "col-sm-3 operator" id = "col3_row2">%</div>');
-var $col4_row2 = $('<div class = "col-sm-3 operator" id = "col4_row2">/</div>');
-var $col1_row3 = $('<div class = "col-sm-3 number" id = "col1_row3">7</div>');
-var $col2_row3 = $('<div class = "col-sm-3 number" id = "col2_row3">8</div>');
-var $col3_row3 = $('<div class = "col-sm-3 number" id = "col3_row3">9</div>');
-var $col4_row3 = $('<div class = "col-sm-3 operator" id = "col4_row3">*</div>');
-var $col1_row4 = $('<div class = "col-sm-3 number" id = "col1_row4">4</div>');
-var $col2_row4 = $('<div class = "col-sm-3 number" id = "col2_row4">5</div>');
-var $col3_row4 = $('<div class = "col-sm-3 number" id = "col3_row4">6</div>');
-var $col4_row4 = $('<div class = "col-sm-3 operator" id = "col4_row4">-</div>');
-var $col1_row5 = $('<div class = "col-sm-3 number" id = "col1_row5">1</div>');
-var $col2_row5 = $('<div class = "col-sm-3 number" id = "col2_row5">2</div>');
-var $col3_row5 = $('<div class = "col-sm-3 number" id = "col3_row5">3</div>');
-var $col4_row5 = $('<div class = "col-sm-3 operator" id = "col4_row5">+</div>');
-var $col1_row6 = $('<div class = "col-sm-6 number" id = "col1_row6">0</div>');
-var $col2_row6 = $('<div class = "col-sm-3 number" id = "col2_row6">.</div>');
-var $col3_row6 = $('<div class = "col-sm-3 equals" id = "col3_row6">=</div>');
-var $col1_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7">true</div>');
-var $col2_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7">false</div>');
-var $col3_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7"> === </div>');
-var $col4_row7 = $('<div class = "col-sm-3 logic" id = "col3_row7"> == </div>');
-var $col1_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> &#62; </div>');
-var $col2_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> &#60; </div>');
-var $col3_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> !== </div>');
-var $col4_row8 = $('<div class = "col-sm-3 logic" id = "col3_row8"> != </div>');
-var $col1_row9 = $('<div class = "col-sm-3 logic" id = "col3_row9"> && </div>');
-var $col2_row9 = $('<div class = "col-sm-3 logic" id = "col3_row9"> || </div>');
-var $col3_row9 = $('<div class = "col-sm-6 logic" id = "col3_row9"> ! </div>');
+var $col1_row2 = $('<div class = "col-xs-3 clear" id = "col1_row2">C</div>');
+var $col2_row2 = $('<div class = "col-xs-3 parens" id = "col2_row2">( )</div>');
+var $col3_row2 = $('<div class = "col-xs-3 operator" id = "col3_row2">%</div>');
+var $col4_row2 = $('<div class = "col-xs-3 operator" id = "col4_row2">/</div>');
+var $col1_row3 = $('<div class = "col-xs-3 number" id = "col1_row3">7</div>');
+var $col2_row3 = $('<div class = "col-xs-3 number" id = "col2_row3">8</div>');
+var $col3_row3 = $('<div class = "col-xs-3 number" id = "col3_row3">9</div>');
+var $col4_row3 = $('<div class = "col-xs-3 operator" id = "col4_row3">*</div>');
+var $col1_row4 = $('<div class = "col-xs-3 number" id = "col1_row4">4</div>');
+var $col2_row4 = $('<div class = "col-xs-3 number" id = "col2_row4">5</div>');
+var $col3_row4 = $('<div class = "col-xs-3 number" id = "col3_row4">6</div>');
+var $col4_row4 = $('<div class = "col-xs-3 operator" id = "col4_row4">-</div>');
+var $col1_row5 = $('<div class = "col-xs-3 number" id = "col1_row5">1</div>');
+var $col2_row5 = $('<div class = "col-xs-3 number" id = "col2_row5">2</div>');
+var $col3_row5 = $('<div class = "col-xs-3 number" id = "col3_row5">3</div>');
+var $col4_row5 = $('<div class = "col-xs-3 operator" id = "col4_row5">+</div>');
+var $col1_row6 = $('<div class = "col-xs-6 number" id = "col1_row6">0</div>');
+var $col2_row6 = $('<div class = "col-xs-3 number" id = "col2_row6">.</div>');
+var $col3_row6 = $('<div class = "col-xs-3 equals" id = "col3_row6">=</div>');
+var $col1_row7 = $('<div class = "col-xs-3 logic" id = "col3_row7">true</div>');
+var $col2_row7 = $('<div class = "col-xs-3 logic" id = "col3_row7">false</div>');
+var $col3_row7 = $('<div class = "col-xs-3 logic" id = "col3_row7"> === </div>');
+var $col4_row7 = $('<div class = "col-xs-3 logic" id = "col3_row7"> == </div>');
+var $col1_row8 = $('<div class = "col-xs-3 logic" id = "col3_row8"> &#62; </div>');
+var $col2_row8 = $('<div class = "col-xs-3 logic" id = "col3_row8"> &#60; </div>');
+var $col3_row8 = $('<div class = "col-xs-3 logic" id = "col3_row8"> !== </div>');
+var $col4_row8 = $('<div class = "col-xs-3 logic" id = "col3_row8"> != </div>');
+var $col1_row9 = $('<div class = "col-xs-3 logic" id = "col3_row9"> && </div>');
+var $col2_row9 = $('<div class = "col-xs-3 logic" id = "col3_row9"> || </div>');
+var $col3_row9 = $('<div class = "col-xs-6 logic" id = "col3_row9"> ! </div>');
 
 
 $('.container-fluid').append($row1, $row2, $row3, $row4, $row5, $row6, $row7, $row8, $row9);
@@ -76,25 +75,23 @@ $($row7).append($col1_row7, $col2_row7, $col3_row7, $col4_row7);
 $($row8).append($col1_row8, $col2_row8, $col3_row8, $col4_row8);
 $($row9).append($col1_row9, $col2_row9, $col3_row9);
 
+// set inital height of rows
+var $winHeight = $(window).height();
+$('.row').css('height', $winHeight/9 + 'px');
 
-$('.row').css('height', $winHeight/9.1 + 'px');
-// $('.row').css('border-style', 'solid');
-// $('.row').css('border-width', '5px');
+$('.col-xs-3').css('height', '100%');
+$('.col-xs-3').css('border-style', 'solid');
+$('.col-xs-3').css('border-width', '1px');
+$('.col-xs-12').css('height', '100%');
+$('.col-xs-12').css('border-style', 'solid');
+$('.col-xs-12').css('border-width', '1px');
+$('.col-xs-6').css('height', '100%');
+$('.col-xs-6').css('border-style', 'solid');
+$('.col-xs-6').css('border-width', '1px');
 
-// $('.col-sm-3').css('width', $winWidth/4);
-$('.col-sm-3').css('height', '100%');
-$('.col-sm-3').css('border-style', 'solid');
-$('.col-sm-3').css('border-width', '1px');
-$('.col-sm-12').css('height', '100%');
-$('.col-sm-12').css('border-style', 'solid');
-$('.col-sm-12').css('border-width', '1px');
-$('.col-sm-6').css('height', '100%');
-$('.col-sm-6').css('border-style', 'solid');
-$('.col-sm-6').css('border-width', '1px');
-
-$('.col-sm-3').css('font-size', '2vw');
-$('.col-sm-12').css('font-size', '2vw');
-$('.col-sm-6').css('font-size', '2vw');
+$('.col-xs-3').css('font-size', '3vw');
+$('.col-xs-12').css('font-size', '3vw');
+$('.col-xs-6').css('font-size', '3vw');
 
 $($row1).css('background-color', '#F38B7E');
 $('.number').css('background-color', '#E4EFF1');
@@ -153,11 +150,9 @@ var $equalsMouseUp = $('.equals').mouseup(function(e) {
   $(col1_row1).empty();
   if(eval($equals)) {
     $(col1_row1).append(eval($equals));
-    console.log("true");
   }
   else {
     $(col1_row1).append('false');
-    console.log("false");
   }
 });
 var $clear = $('.clear').mouseup(function(e) {
@@ -200,13 +195,13 @@ var $parensMouseUp = $('.parens').mouseup(function(e) {
 
 $(window).resize(function(e) {
   var $winHeight = $(window).height();
-  console.log($winHeight);
   $containerWrap.css('height', $winHeight);
   $('.row').css('height', $winHeight/9.1 + 'px');
 });
 
 $('body').keypress(function(e) {
-  console.log("keypress");
+  console.log("in keypress");
+
   switch(e.keyCode) {
     case 48:
     case 49:
@@ -222,11 +217,11 @@ $('body').keypress(function(e) {
     case 42: // mult
     case 45: // min
     case 43: // plus
-    case 50: // open parens
-    case 51: // close parens
+
     case 38: // ampersand
     case 46: // dot
-    
+    case 37: // mod
+
       if($col1_row1.text() == '0') {
         $(col1_row1).text(e.key);
         console.log(e.key + 'if');
@@ -235,10 +230,32 @@ $('body').keypress(function(e) {
         console.log(e.key + 'else');
       }
       break;
+    case 99: // c for clear
+      count = 0;
+      $(col1_row1).text('0');
+      break;
+    case 40: // open parens
+    if($col1_row1.text() == '0') {
+      $(col1_row1).text('(');
+      console.log(e.key + 'if');
+    } else {
+      $(col1_row1).append('(');
+      console.log(e.key + 'else');
+    }
+    break;
+    case 41: // close parens
+      if($col1_row1.text() == '0') {
+        $(col1_row1).text(')');
+        console.log(e.key + 'if');
+      } else {
+        $(col1_row1).append(')');
+        console.log(e.key + 'else');
+      }
+    break;
   }
 });
 $('body').keydown(function(e) {
-  console.log("keypress");
+  console.log("keydown");
   switch(e.keyCode) {
     case 8:
       var innerText = $(col1_row1).text().slice(0,-1);
