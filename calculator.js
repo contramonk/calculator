@@ -104,7 +104,7 @@ var buildCalc = function() {
   //** event handlers **//
   //*******************//
   var $numMouseDown = $('.number').mousedown(function(e) {
-    $(this).css('background-color', 'grey');
+    $(this).css('background-color', '#c2dbe0');
   }); // end numMouseDown
 
   var $numMouseUp = $('.number').mouseup(function(e) {
@@ -119,7 +119,7 @@ var buildCalc = function() {
   }); // end numMouseUp
 
   var $operatorMouseDown = $('.operator').mousedown(function(e) {
-    $(this).css('background-color', 'grey');
+    $(this).css('background-color', '#c2dbe0');
   }); // end operatorMouseDown
 
   var $operatorMouseUp = $('.operator').mouseup(function(e) {
@@ -129,7 +129,7 @@ var buildCalc = function() {
   }); // end operatorMouseUp
 
   var $logicMouseDown = $('.logic').mousedown(function(e) {
-    $(this).css('background-color', 'grey');
+    $(this).css('background-color', '#c2dbe0');
   }); // end logicMouseDown
 
   var $logicMouseUp = $('.logic').mouseup(function(e) {
@@ -144,7 +144,7 @@ var buildCalc = function() {
   }); // end logicMouseUp
 
   var $equalsMouseDown = $('.equals').mousedown(function(e) {
-    $(this).css('background-color', 'grey');
+    $(this).css('background-color', '#c2dbe0');
   }); // end equalsMouseDown
 
   var $equalsMouseUp = $('.equals').mouseup(function(e) {
@@ -159,13 +159,18 @@ var buildCalc = function() {
     }
   }); // end equalsMouseUp
 
-  var $clear = $('.clear').mouseup(function(e) {
+  var $clearMouseDown = $('.clear').mousedown(function(e) {
+    $(this).css('background-color', '#c2dbe0');
+  }); // end clear
+
+  var $clearMouseUp = $('.clear').mouseup(function(e) {
+    $(this).css('background-color', '#E4EFF1');
     count = 0;
     $(col1_row1).text('0');
   }); // end clear
 
   var $parensMouseDown = $('.parens').mousedown(function(e) {
-    $(this).css('background-color', 'grey');
+    $(this).css('background-color', '#c2dbe0');
   }); // end parensMouseDown
 
   var $parensMouseUp = $('.parens').mouseup(function(e) {
